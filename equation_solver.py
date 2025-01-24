@@ -96,7 +96,7 @@ class QuadraticEquation(Equation):
             min_max = 'max'
         return {'x': x, 'y': y, 'min_max': min_max, 'concavity': concavity}
 
-
+//
 def solver(equation):
     if not isinstance(equation, Equation):
         raise TypeError("Argument must be an Equation object")
