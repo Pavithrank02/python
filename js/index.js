@@ -1,18 +1,11 @@
-let text = "malayalam";
-let isPalindrome = true;  // Assume it's a palindrome initially
-
-// Loop to check if the string is a palindrome
-for (let i = 0; i < text.length / 2; i++) {
-    console.log(i)
-    if (text[i] !== text[text.length - 1 - i]) {
-        isPalindrome = false;  // If any characters don't match, it's not a palindrome
-        break;  // Exit the loop early since we've already determined it's not a palindrome
+let text = "i need to reverse this text";
+let words = text.split(" ")
+// console.log(words)
+for(i = 0; i < words.length; i++){
+    let rev_word = ""
+    console.log(words[i])
+    for(j= words[i].length - 1; j>=0; j--){
+        rev_word += words[i][j] 
     }
-}
-
-// Output the result
-if (isPalindrome) {
-    console.log("palindrome");
-} else {
-    console.log("not palindrome");
+    console.log(rev_word)
 }
