@@ -19,5 +19,26 @@
 // }
 
 
+function findPrime(num) {
+
+    if(num < 1 ){
+        return false
+    }else{
+        for(let i = 2; i<  Math.sqrt(num); i++){
+            num % i === 0
+            console.log("not prime")
+            return false
+        }
+        console.log("prime")
+        return true;
+    }
+    
+}
+
+findPrime(3)
+findPrime(6)
+
+
+
 
 
