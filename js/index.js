@@ -38,7 +38,13 @@ function findPrime(num) {
 findPrime(3)
 findPrime(6)
 
+let button =  document.getElementById("")
+button.addEventListeners('click', ()=>{
+    console.log("clicked")
+})
 
+element.createElement = "create element";
+document.createElement 
 
 
 
