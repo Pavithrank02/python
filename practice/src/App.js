@@ -1,13 +1,13 @@
 import { useState } from "react";
+import { useForm } from 'react-hook-form'; 
 import "./App.css";
 
 function App() {
+  const { register,  formState: { errors } } = useForm();
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({
     name: "",
-    email: "",
     password: "",
   });
 
@@ -16,7 +16,7 @@ function App() {
 
     setError({
       name: "",
-      email: "",
+     
       password: "",
     });
 
@@ -27,13 +27,6 @@ function App() {
       formIsValid = false;
       newError.name = "name should'nt be empty";
     }
-    if(!email){
-      formIsValid = false;
-      newError.email = "email should'nt be empty";
-    }else if(!/\S+@\S+\.\S+/.test(email)){
-      formIsValid = false;
-      newError.email = "email should contain @ and .com";
-    }
     if(password.length < 8){
       formIsValid = false;
       newError.password = "password should be minimum 8 characters";
@@ -41,7 +34,7 @@ function App() {
     setError(newError);
 
     if (formIsValid) {
-      console.log("Form submitted successfully:", { name, email, password });
+      console.log("Form submitted successfully:", { name, password });
     }
   };
 
@@ -61,19 +54,9 @@ function App() {
         {error && <p className="error">
          {error.name}
         </p>}
-        <label>email</label>
-        <input
-          type="email"
-          alt="email"
-          placeholder="email"
-          name="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-         {error && <p className="error">
-         {error.email}
-        </p>}
+        <label>Email</label>
+        <input {...register('email', { required: 'Email is required' })} />
+      {errors.email && <p>{errors.email.message}</p>}
         <label>password</label>
         <input
           type="password"
