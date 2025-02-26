@@ -3,9 +3,7 @@ import DisplayTodos from "./DisplayTodos.js"
 
 const App = () => {
   const [todos, setTodos] = useState("");
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos))
-  },[todos])
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
